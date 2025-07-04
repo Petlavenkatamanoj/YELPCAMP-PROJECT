@@ -12,8 +12,9 @@ mongoose.connect("mongodb://localhost:27017/yelp-camp")
     console.error("Connection error:", err);
   });
 
+const engine=require("ejs-mate");
 const app = express();
-
+app.engine('ejs', engine);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({extended:true}));
